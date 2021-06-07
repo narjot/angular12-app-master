@@ -1,0 +1,40 @@
+
+
+
+<div class="container-xxl my-md-4 bd-layout">
+
+  <aside class="bd-sidebar">
+    <nav class="collapse bd-links" id="bd-docs-nav" aria-label="Docs navigation">
+      <ul class="list-unstyled mb-0 py-3 pt-md-1">
+        <li *ngFor="let item of items; let i = index" class="mb-1">
+          <a class="bd-select d-inline-flex align-items-center rounded" data-bs-toggle="collapse"
+            href="#{{ item.link }}-collapse" role="button" aria-expanded="true" aria-current="true">
+            <i class="fas fa-house-user me-2"></i>
+            {{ item.name }}
+          </a>
+          <div class="collapse" id="{{ item.link }}-collapse">
+            <ul class="list-unstyled fw-normal pb-1 small">
+              <li *ngFor="let element of item.elements"><a (click)="onSelectMenu(element.link)" class="d-inline-flex align-items-center rounded"
+                  aria-current="page">
+                  {{ element.name }}</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </nav>
+
+  </aside>
+
+
+
+  <main class="bd-main order-1">
+    <div class="bd-content ps-lg-4">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+
+</div>
+
+
+
+
